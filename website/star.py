@@ -50,6 +50,6 @@ def add_star() -> ui.link:
             with ui.row().classes('items-center no-wrap'):
                 svg.face().classes('w-14 stroke-white stroke-[1pt]')
                 with ui.column().classes('p-2 gap-2'):
-                    ui.label('Star us on GitHub!').classes('text-[180%]')
-                    ui.label('And tell others about NiceGUI.').classes('text-[140%]')
+                    ui.label('在 GitHub 给我们加上星标！').classes('text-[180%]')
+                    ui.label('也可以在那里和我们讨论 NiceGUI 的其他信息。').classes('text-[140%]')
     return link

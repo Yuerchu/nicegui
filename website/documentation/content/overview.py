@@ -16,90 +16,128 @@ from . import (
 )
 from ...style import subheading
 
-doc.title('*NiceGUI* Documentation', 'Reference, Demos and more')
+doc.title('*NiceGUI* 文档', '特性, 演示 以及 其他')
 
-doc.text('Overview', '''
-    NiceGUI is an open-source Python library to write graphical user interfaces which run in the browser.
-    It has a very gentle learning curve while still offering the option for advanced customizations.
-    NiceGUI follows a backend-first philosophy:
-    It handles all the web development details.
-    You can focus on writing Python code.
-    This makes it ideal for a wide range of projects including short
-    scripts, dashboards, robotics projects, IoT solutions, smart home automation, and machine learning.
+doc.text('概览', '''
+    NiceGUI 是一款开源的Python图形界面库，支持在浏览器中运行交互界面。其学习曲线平缓，同时提供高级定制选项。采用后端优先设计理念，封装所有Web开发细节，开发者可专注Python代码编写。适用于多种项目类型：
+
+    - 轻量脚本开发
+    - 数据可视化仪表盘
+    - 机器人控制系统
+    - 物联网(IoT)解决方案
+    - 智能家居中控平台
+    - 机器学习交互界面
 ''')
 
-doc.text('How to use this guide', '''
-    This documentation explains how to use NiceGUI.
-    Each of the tiles covers a NiceGUI topic in detail.
-    It is recommended to start by reading this entire introduction page, then refer to other sections as needed.
+doc.text('使用指南', '''
+    本文档系统阐述NiceGUI使用方法，各功能模块独立成章。建议阅读顺序：
+    
+    1. 通读本导言章节
+    2. 按需查阅具体功能模块
+    3. 实践时参考API文档
 ''')
 
-doc.text('Basic concepts', '''
-    NiceGUI provides UI _elements_ such as buttons, sliders, text, images, charts, and more.
-    Your app assembles these components into _pages_.
-    When the user interacts with an item on a page, NiceGUI triggers an _event_ (or _action_).
-    You define code to _handle_ each event, such as what to do when a user clicks a button, modifies a value or operates a slider.
-    Elements can also be bound to a _model_ (data object), which automatically updates the user interface when the model value changes.
+doc.text('核心概念', '''
+    NiceGUI 提供标准化UI组件生态：
 
-    Elements are arranged on a page using a "declarative UI" or "code-based UI".
-    That means that you also write structures like grids, cards, tabs, carousels, expansions, menus, and other layout elements directly in code.
-    This concept has been made popular with Flutter and SwiftUI.
-    For readability, NiceGUI utilizes Python's `with ...` statement.
-    This context manager provides a nice way to indent the code to resemble the layout of the UI.
+    - **基础控件**：按钮/滑块/文本/图像等
+    - **数据可视化**：图表/流程图/3D场景
+    - **页面架构**：通过代码声明式构建布局
+    
+    交互机制实现：
 
-    Styling and appearance can be controlled in several ways.
-    Most elements accept optional arguments for common styling and behavior changes, such as button icons or text color.
-    Because NiceGUI is a web framework, you can change almost any appearance of an element with CSS.
-    But elements also provide `.classes` and `.props` methods to apply Tailwind CSS and Quasar properties
-    which are more high-level and simpler to use day-to-day after you get the hang of it.
+    - **事件驱动模型**：用户操作触发事件响应
+    - **数据绑定系统**：模型变更自动更新UI
+    - **异步任务处理**：保持界面响应流畅
+    
+    布局构建特色：
+    ```python
+    with ui.card():  # 声明式布局构造器
+        ui.label('卡片内容')
+        with ui.row():  # 行式布局容器
+            ui.button('确认')
+            ui.button('取消')
+    ```
+    该语法源自Flutter/SwiftUI范式，通过Python上下文管理器实现代码与UI的视觉对应。
 ''')
 
-doc.text('Actions, Events and Tasks', '''
-    NiceGUI uses an async/await event loop for concurrency which is resource-efficient and has the great benefit of not having to worry about thread safety.
-    This section shows how to handle user input and other events like timers and keyboard bindings.
-    It also describes helper functions to wrap long-running tasks in asynchronous functions to keep the UI responsive.
-    Keep in mind that all UI updates must happen on the main thread with its event loop.
+doc.text('事件与异步', '''
+    NiceGUI采用异步事件循环架构：
+    - 单线程事件驱动，确保线程安全
+    - 支持定时任务/键盘事件等并发处理
+    - 提供异步任务封装器保持UI响应
+    
+    重要原则：
+    - 所有UI更新必须在主线程执行
+    - 长时间任务需使用`async`函数处理
 ''')
 
-doc.text('Implementation', '''
-    NiceGUI is implemented with HTML components served by an HTTP server (FastAPI), even for native windows.
-    If you already know HTML, everything will feel very familiar.
-    If you don't know HTML, that's fine too!
-    NiceGUI abstracts away the details, so you can focus on creating beautiful interfaces without worrying about how they are implemented.
+doc.text('技术实现', '''
+    架构分层：
+    1. **前端渲染**：基于Vue/Quasar组件库
+    2. **通信协议**：WebSocket双向数据绑定
+    3. **服务引擎**：FastAPI + Starlette + Uvicorn
+    4. **部署模式**：支持浏览器/原生窗口/服务器多形态
+    
+    开发者无需掌握HTML即可构建现代Web应用，框架自动处理：
+    - DOM操作优化
+    - 浏览器兼容性
+    - 响应式布局适配
 ''')
 
-doc.text('Running NiceGUI Apps', '''
-    There are several options for deploying NiceGUI.
-    By default, NiceGUI runs a server on localhost and runs your app as a private web page on the local machine.
-    When run this way, your app appears in a web browser window.
-    You can also run NiceGUI in a native window separate from a web browser.
-    Or you can run NiceGUI on a server that handles many clients - the website you're reading right now is served from NiceGUI.
+doc.text('应用部署', '''
+    部署方案选择：
 
-    After creating your app pages with components, you call `ui.run()` to start the NiceGUI server.
-    Optional parameters to `ui.run` set things like the network address and port the server binds to,
-    whether the app runs in native mode, initial window size, and many other options.
-    The section _Configuration and Deployment_ covers the options to the `ui.run()` function and the FastAPI framework it is based on.
+    - 🖥️ 本地开发模式：`ui.run(local=True)`
+    - 🪟 原生窗口模式：`ui.run(native=True)`
+    - 🌐 服务器部署：`ui.run(host='0.0.0.0')`
+    
+    关键配置参数：
+
+    ```python
+    ui.run(
+        port=8080,           # 服务端口
+        reload=True,         # 热重载开关
+        window_size=(1024,768),  # 初始窗口尺寸
+        uvicorn_log_level='info'  # 日志级别
+    )
+    ```
+
+    详见《配置与部署》章节。
 ''')
 
-doc.text('Customization', '''
-    If you want more customization in your app, you can use the underlying Tailwind classes and Quasar components
-    to control the style or behavior of your components.
-    You can also extend the available components by subclassing existing NiceGUI components or importing new ones from Quasar.
-    All of this is optional.
-    Out of the box, NiceGUI provides everything you need to make modern, stylish, responsive user interfaces.
+doc.text('深度定制', '''
+    扩展能力三层次：
+
+    1. **样式定制**：
+       - Tailwind原子类 `.classes('bg-blue-500')`
+       - Quasar属性 `.props('dense outlined')`
+       - 自定义CSS注入
+    2. **组件扩展**：
+       - 继承现有组件实现定制逻辑
+       - 导入Quasar原生组件
+    3. **架构整合**：
+       - 与FastAPI中间件深度集成
+       - 支持WebSocket自定义路由
 ''')
 
-doc.text('Testing', '''
-    NiceGUI provides a comprehensive testing framework based on [pytest](https://docs.pytest.org/)
-    which allows you to automate the testing of your user interface.
-    You can utilize the `screen` fixture which starts a real (headless) browser to interact with your application.
-    This is great if you have browser-specific behavior to test.
-
-    But most of the time, NiceGUI's newly introduced `user` fixture is more suited:
-    It only simulates the user interaction on a Python level and, hence, is blazing fast.
-    That way the classical [test pyramid](https://martinfowler.com/bliki/TestPyramid.html),
-    where UI tests are considered slow and expensive, does not apply anymore.
-    This can have a huge impact on your development speed, quality and confidence.
+doc.text('测试体系', '''
+    双模测试方案：
+    - 🚀 **高效单元测试**（user fixture）：
+      ```python
+      def test_login(user: User):
+          user.click(login_button)
+          assert user.find('欢迎管理员')
+      ```
+      执行速度：毫秒级/用例
+    
+    - 🌐 **端到端测试**（screen fixture）：
+      ```python
+      def test_browser_compatibility(screen: Screen):
+          screen.open('/')
+          screen.assert_contains('初始化完成')
+      ```
+      覆盖真实浏览器行为
 ''')
 
 tiles = [
@@ -142,7 +180,7 @@ tiles = [
 @doc.extra_column
 def create_tiles():
     with ui.row().classes('items-center content-between'):
-        ui.label('If you like NiceGUI, go and become a')
+        ui.label('如果你喜欢 NiceGUI ，欢迎前往并成为')
         ui.html('<iframe src="https://github.com/sponsors/zauberzeug/button" title="Sponsor zauberzeug" height="32" width="114" style="border: 0; border-radius: 6px;"></iframe>')
     for documentation, description in tiles:
         page = doc.get_page(documentation)
@@ -157,21 +195,21 @@ def create_tiles():
 @doc.ui
 def map_of_nicegui():
     ui.separator().classes('mt-6')
-    subheading('Map of NiceGUI', anchor_name='map-of-nicegui')
+    subheading('NiceGUI 地图', anchor_name='map-of-nicegui')
     ui.add_css('''
         .map-of-nicegui a code {
             font-weight: bold;
         }
     ''')
     ui.markdown('''
-        This overview shows the structure of NiceGUI.
-        It is a map of the NiceGUI namespace and its contents.
-        It is not exhaustive, but it gives you a good idea of what is available.
-        An ongoing goal is to make this map more complete and to add missing links to the documentation.
+        本概览展示了NiceGUI的结构，
+        它是NiceGUI命名空间及其内容的地图。
+        虽然并不详尽，但能很好地帮助您了解可用的功能。
+        我们持续的目标是使这张地图更加完整，并为文档添加缺失的链接。
 
         #### `ui`
 
-        UI elements and other essentials to run a NiceGUI app.
+        运行NiceGUI应用所需的UI元素及其他基本组件。
 
         - [`ui.element`](/documentation/element): base class for all UI elements
             - customization:
@@ -312,7 +350,7 @@ def map_of_nicegui():
 
         #### `app`
 
-        App-wide storage, mount points and lifecycle hooks.
+        应用级存储、挂载点和生命周期钩子。（实际上，您可以把它当作 NiceGUI 创建的 FastAPI 实例。）
 
         - [`app.storage`](/documentation/storage):
             - `app.storage.tab`: stored in memory on the server, unique per tab

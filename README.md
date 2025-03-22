@@ -1,12 +1,12 @@
-<a href="https://nicegui.io/#about">
+<a href="https://nicegui.cn/#about">
   <img src="https://raw.githubusercontent.com/zauberzeug/nicegui/main/screenshot.png"
-    width="200" align="right" alt="Try online!" />
+    width="200" align="right" alt="在线尝试它!" />
 </a>
 
 # NiceGUI
 
-NiceGUI is an easy-to-use, Python-based UI framework, which shows up in your web browser.
-You can create buttons, dialogs, Markdown, 3D scenes, plots and much more.
+NiceGUI 是一个易于使用的、基于 Python 的 UI 框架，它工作于您的 Web 浏览器中。
+您可以创建按钮、消息框、Markdown、3D 图形, plots 以及其他组件。
 
 It is great for micro web apps, dashboards, robotics projects, smart home solutions and similar use cases.
 You can also use it in development, for example when tweaking/configuring a machine learning algorithm or tuning motor controllers.

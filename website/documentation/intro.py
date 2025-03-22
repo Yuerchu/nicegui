@@ -12,13 +12,13 @@ def create_intro() -> None:
     ''')
     def formatting_demo():
         ui.icon('thumb_up')
-        ui.markdown('This is **Markdown**.')
-        ui.html('This is <strong>HTML</strong>.')
+        ui.markdown('这是一段 **Markdown**.')
+        ui.html('这是一段 <strong>HTML</strong>.')
         with ui.row():
             ui.label('CSS').style('color: #888; font-weight: bold')
             ui.label('Tailwind').classes('font-serif')
             ui.label('Quasar').classes('q-ml-xl')
-        ui.link('NiceGUI on GitHub', 'https://github.com/zauberzeug/nicegui')
+        ui.link('Github 上的 NiceGUI', 'https://github.com/zauberzeug/nicegui')
 
     @_main_page_demo('Common UI Elements', '''
         NiceGUI comes with a collection of commonly used UI elements.
@@ -30,15 +30,15 @@ def create_intro() -> None:
             name = type(event.sender).__name__
             ui.notify(f'{name}: {event.value}')
 
-        ui.button('Button', on_click=lambda: ui.notify('Click'))
+        ui.button('按钮', on_click=lambda: ui.notify('点击了按钮'))
         with ui.row():
-            ui.checkbox('Checkbox', on_change=show)
-            ui.switch('Switch', on_change=show)
+            ui.checkbox('选择器', on_change=show)
+            ui.switch('开关', on_change=show)
         ui.radio(['A', 'B', 'C'], value='A', on_change=show).props('inline')
         with ui.row():
-            ui.input('Text input', on_change=show)
+            ui.input('文本输入框', on_change=show)
             ui.select(['One', 'Two'], value='One', on_change=show)
-        ui.link('And many more...', '/documentation').classes('mt-8')
+        ui.link('还有更多...', '/documentation').classes('mt-8')
 
     @_main_page_demo('Value Binding', '''
         Binding values between UI elements and data models is built into NiceGUI.

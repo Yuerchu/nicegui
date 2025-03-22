@@ -19,12 +19,13 @@ def add_head_html() -> None:
 def add_header(menu: Optional[ui.left_drawer] = None) -> None:
     """Create the page header."""
     menu_items = {
-        'Installation': '/#installation',
-        'Features': '/#features',
-        'Demos': '/#demos',
-        'Documentation': '/documentation',
-        'Examples': '/#examples',
-        'Why?': '/#why',
+        '安装': '/#installation',
+        '特性': '/#features',
+        '演示': '/#demos',
+        '文档': '/documentation',
+        '例程': '/#examples',
+        '原因?': '/#why',
+        'English': 'https://nicegui.io'
     }
     dark_mode = ui.dark_mode(value=app.storage.browser.get('dark_mode'), on_change=lambda e: ui.run_javascript(f'''
         fetch('/dark_mode', {{
@@ -49,7 +50,7 @@ def add_header(menu: Optional[ui.left_drawer] = None) -> None:
         search = Search()
         search.create_button()
 
-        with ui.element().classes('max-[420px]:hidden').tooltip('Cycle theme mode through dark, light, and system/auto.'):
+        with ui.element().classes('max-[420px]:hidden').tooltip('切换主题，在跟随系统、浅色模式与深色模式循环切换'):
             ui.button(icon='dark_mode', on_click=lambda: dark_mode.set_value(None)) \
                 .props('flat fab-mini color=white').bind_visibility_from(dark_mode, 'value', value=True)
             ui.button(icon='light_mode', on_click=lambda: dark_mode.set_value(True)) \
