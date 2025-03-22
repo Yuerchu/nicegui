@@ -10,7 +10,7 @@ from . import (
     query_documentation,
 )
 
-doc.title('Styling & Appearance')
+doc.title('造型与外观')
 
 
 @doc.demo('Styling', '''

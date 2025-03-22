@@ -4,7 +4,7 @@ from . import doc
 
 date = '2023-01-01'
 
-doc.title('*Binding* Properties')
+doc.title('绑定属性')
 
 
 @doc.demo('Bindings', '''

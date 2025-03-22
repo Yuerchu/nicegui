@@ -29,7 +29,7 @@ from . import (
     tooltip_documentation,
 )
 
-doc.title('Page *Layout*')
+doc.title('页面 *布局*')
 
 
 @doc.demo('Auto-context', '''

@@ -11,7 +11,7 @@ from . import (
     timer_documentation,
 )
 
-doc.title('Action & *Events*')
+doc.title('行动与 *事件*')
 
 doc.intro(timer_documentation)
 doc.intro(keyboard_documentation)

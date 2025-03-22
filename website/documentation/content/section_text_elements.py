@@ -11,7 +11,7 @@ from . import (
 )
 from .html_documentation import other_html_elements_description, other_html_elements_title, other_html_elements
 
-doc.title('*Text* Elements')
+doc.title('*文本* 元素')
 
 doc.intro(label_documentation)
 doc.intro(link_documentation)

@@ -69,7 +69,7 @@ def create() -> None:
             heading('通过按钮、对话框、3D场景及可视化图表等丰富组件 —— 实现与Python代码的实时双向交互操作。')
             with ui.column().classes('gap-2 bold-links arrow-links text-lg'):
                 ui.markdown('''
-                    NiceGUI 为您封装底层Web开发细节，助您专注核心业务逻辑的Python实现，完美适配：
+                    NiceGUI 为您封装底层 Web 开发细节，助您专注核心业务逻辑的 Python 实现，完美适配：
 
                     - 机器人控制系统开发
                     - 物联网(IoT)设备管理平台
@@ -82,7 +82,7 @@ def create() -> None:
                     <br><br><br>
                     您可在这些地方获得 NiceGUI ：
                     [PyPI 包](https://pypi.org/project/nicegui/),
-                    [Docker 镜像](https://hub.docker.com/r/zauberzeug/nicegui) and on
+                    [Docker 镜像](https://hub.docker.com/r/zauberzeug/nicegui) 以及
                     [GitHub](https://github.com/zauberzeug/nicegui).
                 ''')
         example_card.create()
@@ -125,7 +125,7 @@ def create() -> None:
                     使用我们的 [预构建 Docker 镜像](https://hub.docker.com/repository/docker/zauberzeug/nicegui)
                     您可以在不安装任何包的前提下运行服务。
 
-                    The command searches for `main.py` in in your current directory and makes the app available at http://localhost:8888.
+                    该命令会在当前目录中查找 `main.py` 文件，并在 http://localhost:8888 启动应用服务。
                 ''').classes('max-w-xl')
                 with documentation.bash_window(classes='max-w-lg w-full h-52'):
                     ui.markdown('''
@@ -193,7 +193,7 @@ def create() -> None:
 
     with ui.column().classes('w-full p-8 lg:p-16 max-w-[1600px] mx-auto'):
         link_target('examples', '-50px')
-        section_heading('In-depth examples', 'Pick your *solution*')
+        section_heading('高级例程', '选择您的*解决方案*')
         with ui.row().classes('w-full text-lg leading-tight grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4'):
             for example in examples:
                 example_link(example)
@@ -202,32 +202,32 @@ def create() -> None:
         with ui.column().classes('mx-auto items-center gap-y-8 gap-x-32 lg:flex-row'):
             with ui.column().classes('max-lg:items-center max-lg:text-center'):
                 link_target('sponsors')
-                ui.markdown('NiceGUI is supported by') \
+                ui.markdown('NiceGUI 被这些朋友赞助：') \
                     .classes('text-2xl md:text-3xl font-medium')
                 if SPONSORS['top']:
                     with ui.row(align_items='center'):
                         assert SPONSORS['total'] > 0
                         ui.markdown(f'''
-                            our top {'sponsor' if len(SPONSORS['top']) == 1 else 'sponsors'}
+                            我们的顶级赞助者
                         ''')
                         for sponsor in SPONSORS['top']:
                             with ui.link(target=f'https://github.com/{sponsor}').classes('row items-center gap-2'):
                                 ui.image(f'https://github.com/{sponsor}.png').classes('w-12 h-12 border')
                                 ui.label(f'@{sponsor}')
                     ui.markdown(f'''
-                        as well as {SPONSORS['total'] - len(SPONSORS['top'])} other [sponsors](https://github.com/sponsors/zauberzeug)
-                        and {SPONSORS['contributors']} [contributors](https://github.com/zauberzeug/nicegui/graphs/contributors).
+                        还有 {SPONSORS['total'] - len(SPONSORS['top'])} 位 [赞助者](https://github.com/sponsors/zauberzeug)
+                        和 {SPONSORS['contributors']} 位 [贡献者](https://github.com/zauberzeug/nicegui/graphs/contributors).
                     ''').classes('bold-links arrow-links')
                 else:
                     ui.markdown(f'''
-                        {SPONSORS['total']} [sponsors](https://github.com/sponsors/zauberzeug)
-                        and {SPONSORS['contributors']} [contributors](https://github.com/zauberzeug/nicegui/graphs/contributors).
+                        {SPONSORS['total']} 位 [赞助者](https://github.com/sponsors/zauberzeug)
+                        和 {SPONSORS['contributors']} 位 [贡献者](https://github.com/zauberzeug/nicegui/graphs/contributors).
                     ''').classes('bold-links arrow-links')
             with ui.link(target='https://github.com/sponsors/zauberzeug').style('color: black !important') \
                     .classes('rounded-full mx-auto px-12 py-2 border-2 border-[#3e6a94] font-medium text-lg md:text-xl'):
                 with ui.row().classes('items-center gap-4'):
                     ui.icon('sym_o_favorite', color='#3e6a94')
-                    ui.label('Become a sponsor').classes('text-[#3e6a94]')
+                    ui.label('成为一位赞助者').classes('text-[#3e6a94]')
 
     with ui.row().classes('dark-box min-h-screen mt-16'):
         link_target('why')
@@ -256,8 +256,10 @@ def create() -> None:
                     ui.markdown('''
                         本框架技术架构基于
                         [FastAPI](https://fastapi.tiangolo.com/)，其底层整合：
+                        
                         - ASGI框架[Starlette](https://www.starlette.io/)
                         - 高性能ASGI服务器[Uvicorn](https://www.uvicorn.org/)
+                        
                         该组合在保证卓越性能的同时，显著提升开发效率。
                     ''')
             svg.face().classes('stroke-white shrink-0 w-[200px] md:w-[300px] lg:w-[450px]')

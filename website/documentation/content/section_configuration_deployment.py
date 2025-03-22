@@ -3,7 +3,7 @@ from nicegui import ui
 from ..windows import bash_window, python_window
 from . import doc, run_documentation
 
-doc.title('Configuration & Deployment')
+doc.title('配置与部署')
 
 
 @doc.demo('URLs', '''

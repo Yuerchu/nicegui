@@ -22,7 +22,7 @@ from . import (
     tree_documentation,
 )
 
-doc.title('*Data* Elements')
+doc.title('*数据* 元素')
 
 doc.intro(table_documentation)
 doc.intro(aggrid_documentation)

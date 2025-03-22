@@ -10,7 +10,7 @@ from . import (
     video_documentation,
 )
 
-doc.title('*Audiovisual* Elements')
+doc.title('*视听* 元素')
 
 doc.intro(image_documentation)
 

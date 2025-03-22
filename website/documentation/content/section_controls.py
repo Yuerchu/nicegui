@@ -26,7 +26,7 @@ from . import (
     upload_documentation,
 )
 
-doc.title('*Controls*')
+doc.title('*控制* 元素')
 
 doc.intro(button_documentation)
 doc.intro(button_group_documentation)

@@ -5,7 +5,7 @@ from . import (
     user_documentation,
 )
 
-doc.title('*Testing*')
+doc.title('*测试*')
 
 doc.intro(project_structure_documentation)
 doc.intro(user_documentation)

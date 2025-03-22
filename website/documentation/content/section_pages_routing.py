@@ -13,7 +13,7 @@ from . import (
 
 CONSTANT_UUID = str(uuid.uuid4())
 
-doc.title('*Pages* & Routing')
+doc.title('*页面* 与路由')
 
 doc.intro(page_documentation)
 
